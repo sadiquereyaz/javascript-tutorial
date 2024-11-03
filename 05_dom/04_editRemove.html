@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Element Edit/Remove</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>Java-Script</li>
+    </ul>
+</body>
+
+<script>
+
+   function addLang(name){
+    const myLi = document.createElement('li');
+    myLi.innerText =`${name}`;
+    document.querySelector('.language').appendChild(myLi);
+   }
+   addLang('python');
+   addLang('Kotlin');
+
+   function optimAddLang(langName){
+    const myLi = document.createElement('li');
+    myLi.appendChild(document.createTextNode(langName));
+    document.querySelector('.language').appendChild(myLi);
+   }
+   optimAddLang('Go-lang');
+
+   // replacing 2nd language in bullet point
+   const secondLan = document.querySelector('li:nth-child(2)');
+   const newLi = document.createElement('li');
+   newLi.textContent = 'Mojo'
+   secondLan.replaceWith(newLi);
+
+   //remove
+   const lastChild = document.querySelector('li:last-child');
+   lastChild.remove();
+</script>
+
+</html> 
